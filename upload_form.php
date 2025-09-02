@@ -20,6 +20,9 @@ print_r($_FILES);
 
          print $imgstr;
      }
+     else {
+        print("invalid file type");
+     }
  }
 ?>
 
