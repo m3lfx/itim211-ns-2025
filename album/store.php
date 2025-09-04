@@ -1,6 +1,6 @@
 <?php
     include("../includes/config.php");
-    print_r($_POST);
+    // print_r($_POST);
     $title = $_POST['albumName'];
     $artist_id = $_POST['artist'];
     $date = $_POST['dateReleased'];
