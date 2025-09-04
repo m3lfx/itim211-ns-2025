@@ -1,6 +1,12 @@
 <?php
+session_start();
+
 require('../includes/config.php');
 
+if (!isset($_SESSION['user_id'])) {
+    $_SESSION['message'] = "please Login to access the page";
+    header("Location: ../user/login.php");
+}
 $name = trim($_POST['artistName']);
 $country = trim($_POST['country']);
 print "<h1>$name</h1>";

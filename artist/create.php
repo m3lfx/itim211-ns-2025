@@ -1,6 +1,10 @@
 <?php
-// session_start();
+session_start();
 // print_r($_SESSION);
+if (!isset($_SESSION['user_id'])) {
+        $_SESSION['message'] = "please Login to access the page";
+        header("Location: ../user/login.php" );
+    }
 include('../includes/header.php');
 
 ?>

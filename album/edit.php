@@ -1,17 +1,23 @@
 <?php
-    include("../includes/header.php");
-    include("../includes/config.php");
+session_start();
+include("../includes/header.php");
+include("../includes/config.php");
 
-    // $album = mysqli_query($conn, "SELECT * FROM albums WHERE album_id = {$_GET['id']} LIMIT 1");
-    $album = mysqli_query($conn, "SELECT * FROM albums al INNER JOIN artists ar ON (al.artist_id = ar.artist_id) WHERE album_id = {$_GET['id']}");
-    $album = mysqli_fetch_assoc($album);
+if (!isset($_SESSION['user_id'])) {
+    $_SESSION['message'] = "please Login to access the page";
+    header("Location: ../user/login.php");
+}
 
-    // $result_artist = mysqli_query($conn, "SELECT * FROM artists");
-    // $artists = mysqli_fetch_assoc($result_artist);
-    
-    // var_dump($album, $artists);
-    $artists = mysqli_query($conn, "SELECT * FROM artists WHERE artist_id != {$album['artist_id']}");
-    
+// $album = mysqli_query($conn, "SELECT * FROM albums WHERE album_id = {$_GET['id']} LIMIT 1");
+$album = mysqli_query($conn, "SELECT * FROM albums al INNER JOIN artists ar ON (al.artist_id = ar.artist_id) WHERE album_id = {$_GET['id']}");
+$album = mysqli_fetch_assoc($album);
+
+// $result_artist = mysqli_query($conn, "SELECT * FROM artists");
+// $artists = mysqli_fetch_assoc($result_artist);
+
+// var_dump($album, $artists);
+$artists = mysqli_query($conn, "SELECT * FROM artists WHERE artist_id != {$album['artist_id']}");
+
 ?>
 <div class="container-fluid container-lg">
     <form action="update.php" method="POST">
@@ -21,13 +27,13 @@
         </div>
         <div class="mb-3">
             <label for="artist" class="form-label">Artist</label>
-            <select class="form-select" id="artist" aria-label="Select Artist" name="artist_id" >
+            <select class="form-select" id="artist" aria-label="Select Artist" name="artist_id">
                 <option selected>Select Artist</option>
-                <?php 
-                    echo "<option value={$album['artist_id']} selected>{$album['name']}</option>";
-                    while($row = mysqli_fetch_assoc($artists)) {
-                        echo "<option value={$row['artist_id']}>{$row['name']}</option>";
-                    }
+                <?php
+                echo "<option value={$album['artist_id']} selected>{$album['name']}</option>";
+                while ($row = mysqli_fetch_assoc($artists)) {
+                    echo "<option value={$row['artist_id']}>{$row['name']}</option>";
+                }
                 ?>
             </select>
         </div>

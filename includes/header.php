@@ -32,11 +32,11 @@
                    
                     if (!isset($_SESSION['user_id'])) {
                         echo "<div class='navbar-nav ms-auto'>
-                        <a href='http://{$_SERVER['SERVER_NAME']}/itim211-s-2024/user/login.php'  class='nav-item nav-link'>Login</a></div>";
+                        <a href='http://{$_SERVER['SERVER_NAME']}/itim211-ns-2025/user/login.php'  class='nav-item nav-link'>Login</a></div>";
                     } else {
                         echo "<div class='navbar-nav ms-auto'><p>{$_SESSION['email']}</p></div>";
                         echo "<div class='navbar-nav ms-auto'>
-                        <a href='http://{$_SERVER['SERVER_NAME']}/itim211-s-2024/user/logout.php'  class='nav-item nav-link'>Logout</a></div>";
+                        <a href='http://{$_SERVER['SERVER_NAME']}/itim211-ns-2025/user/logout.php'  class='nav-item nav-link'>Logout</a></div>";
                     }
                     ?>
                 </div>

@@ -1,8 +1,13 @@
 <?php
 // print $_GET['id'];
-// session_start();
+session_start();
 include('../includes/header.php');
 require('../includes/config.php');
+
+if (!isset($_SESSION['user_id'])) {
+    $_SESSION['message'] = "please Login to access the page";
+    header("Location: ../user/login.php");
+}
 // 
 $artist_id = (int) $_GET['id'];
 
@@ -31,7 +36,7 @@ print $row['country'];
                 <label for="image">upload image</label>
                 <input type="file" class="form-control" id="image" placeholder="image"
                     name="image">
-                    <img width='250' height='250' src= <?php print $row['img_path'] ?> />
+                <img width='250' height='250' src=<?php print $row['img_path'] ?> />
             </div>
             <input type="hidden" name="artistId" value=<?php print $row['artist_id'] ?> />
 
