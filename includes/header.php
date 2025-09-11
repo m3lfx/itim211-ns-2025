@@ -26,7 +26,7 @@
                         <a href="#" class="nav-item nav-link">Profile</a>
                         <a href="/itim211-ns-2025/artist/index.php" class="nav-item nav-link">Artists</a>
                         <a href="/itim211-ns-2025/album/index.php" class="nav-item nav-link " tabindex="-1">Albums</a>
-                        <a href="/itim211-ns-2025/listener/albumlist.php" class="nav-item nav-link " tabindex="-1">my Albums</a>
+                        <a href="/itim211-ns-2025/listener/album_list.php" class="nav-item nav-link " tabindex="-1">my Albums</a>
                     </div>
                     <?php
                    
