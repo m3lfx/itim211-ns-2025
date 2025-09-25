@@ -21,8 +21,6 @@ if(isset($_POST['albums'])) {
        
     }
 }
-
-
 else {
     $result = mysqli_query($conn, "DELETE FROM album_listener WHERE  listener_id = {$_SESSION['listener_id']}"); 
 }
